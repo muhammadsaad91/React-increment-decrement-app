@@ -1,35 +1,50 @@
 import react, { useState } from "react";
-// import React {useState} from "react";
-// import react {useState} from "react";
+
+
+// jab bhi form lgaen ge tou form ki wjah se button click krne pe page auto refresh hoga 
+             // isko sahi kr skte hain 'event.preventDefault();' lga kr
+
 
 const App = () => {
-    const[ but,setBut]=useState('')
-    const [butname, setButname] = useState('Submit');
-    const [fname, setFname] = useState('');
-    const [lname, setLname] = useState('');
-    const [final, setFinal] = useState('');
-    const clicked = () => {
-        setFinal('Hello ' + fname + " " + lname);
-        setButname('Submitted See Your Name Above');
-    }
-    const up=()=>{
-        setBut('clicked');
-    }
-    const changef = (e) => {
-        setFname(e.target.value);
-    }
-    const changel = (e) => {
-        setLname(e.target.value);
-    }
+    const [fullName, setFullName] = useState({
+        fname: "",
+        lname: "",
+        email: '',
+        number:'',
+
+    });
+    const change = (event) => {
+        const { name, value } = event.target;
+        setFullName((prevState) => {
+            return {
+                ...prevState,
+                [name]: value,
+            };
+        });
+    };
+    const submit = (event) => {
+        // event.preventDefault();
+        console.log(fullName);
+    };
+
+
+
 
     return (
         <>
-            <div className="card">
-                <h1>{final}</h1>
-                <input type="text" value={fname} onChange={changef} placeholder="Enter First Name" />
-                <input type="text" value={lname} onChange={changel} placeholder="Enter Second Name" />
-                <button onClick={clicked} onMouseOut={up}>{butname}</button>
-            </div>
+            <form onSubmit={submit}>
+                    <h1>Full Name:{fullName.fname} {fullName.lname} </h1>
+                    <p>Email :{fullName.email}</p>
+                    <p>Number:{fullName.number}</p>
+                <div className="card">
+                    <input type="text" name="fname" value={fullName.fname} onChange={change}  placeholder="Enter Your first name"/>
+                    <input type="text" name="lname" value={fullName.lname} onChange={change}  placeholder="Enter Your last name"/>
+                    <input type="text" name="email" value={fullName.email} onChange={change} placeholder="Enter Your email" />          
+                    <input type="text" name="number" value={fullName.number} onChange={change} placeholder="Enter Your number" />
+                    <button type="Submit" >Submit Here</button>
+                </div>
+
+            </form>
         </>
     );
 }

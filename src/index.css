@@ -19,12 +19,16 @@
   color: rgb(172, 238, 243);
   text-transform: capitalize;
   }
-  /* .cards{
-    /* display: flex;
+  p{
+     display: flex;
     text-align: center;
     justify-content: center; 
-     border: 2px solid black; 
-  } */
+    font-size: 2rem;
+    font-style: italic ;
+    color: rgb(172, 238, 243);
+
+     /* border: 2px solid black;  */
+  } 
   .card{
     gap: 5rem;
     /* margin-top: 15rem; */
@@ -37,7 +41,7 @@
     /* box-sizing: border-box; */
     flex-wrap: wrap;
     width: 100vw;
-    height: 100vh;
+    height: auto;
    }
    input{
      height: 5rem;
