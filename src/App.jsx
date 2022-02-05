@@ -37,7 +37,7 @@ return (
                         })
                      }
                }
-            >-</button><p>{itemval}</p></div>
+            >x</button><p>{itemval}</p></div>
        )})}
 
         </div>
