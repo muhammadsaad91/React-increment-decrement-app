@@ -48,6 +48,7 @@
   font-size: 2rem;
   font-style: italic; 
    color: #f2f2f2;
+  /* background: transparent; */
 
 }
 .input-div{
@@ -82,7 +83,7 @@ input{
   justify-content: center;
   align-items: baseline;
   flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 
   /* border: 2px solid rgb(6, 36, 36); */
   gap: 2rem
@@ -113,12 +114,13 @@ button:hover{
   font-weight: bold;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 padding-left: 20px;
   gap: 2rem;
   /* justify-content: center; */
 align-items: center;
 border-bottom: 2px dotted rgb(6, 36, 36);
+text-transform: capitalize;
 /* width: 40%; */
 }
 
