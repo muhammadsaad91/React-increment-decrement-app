@@ -1,48 +1,32 @@
 import react, { useState } from "react";
+import AddIcon from '@material-ui/icons/Add';
+import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 
 const App = () => {
-    const[name , setName]=useState('');
-    const[clname,setClname]=useState([]);
-   
-   
-    const change=(e)=>{
-        setName(e.target.value);
+    const [count, setCount] = useState(0);
+    const clickeneg = () => {
+        setCount(count-1);
+
     }
-const clicked=()=>{
-    setClname( (olditems)=>{
-    return [...olditems,name];
-    } )   
-    setName('');
-}
-
-return (
-    <>
-    <div className="Main-div">
-        <div className="inner-div">
-           <div className="header"> <h1>ToDo List</h1></div>
-       <div className="flex-inp">  
-        <div className="input-div"><input type="text" placeholder="Enter Item Name" value={name} onChange={change}/></div>
-        <button onClick={clicked}>+</button>
-        </div> 
-       {clname.map( (itemval,index)=>{
-           return(
-           <div className="list-div">
-               <button  
-               onClick={
-                     ()=>{
-                        setClname( (old)=>{
-                            return old.filter( (val,id)=>{
-                                return id!==index;
-                            })
-                        })
-                     }
-               }
-            >x</button><p>{itemval}</p></div>
-       )})}
-
-        </div>
-    </div>
-    </>
-    )
+    const clicknpos=()=>{
+         setCount(count+1);
+    }
+    if( count<0){
+        setCount(0);
+        alert("Negative not allowed😜")
+    }
+  return(
+      <>
+<div className="Main-div">
+    <div className="inner-div">
+      <div className="header"> <h1> {count}</h1></div>
+      <div className="input-div"> <button onClick={clicknpos}>+</button>
+      <div className="list-div">
+          <button onClick={clickeneg}>--</button>
+      </div></div>
+      </div>
+      </div>
+      </>
+  )
 }
 export default App;
