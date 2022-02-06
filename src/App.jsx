@@ -1,6 +1,5 @@
 import react, { useState } from "react";
-import AddIcon from '@material-ui/icons/Add';
-import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
+
 
 const App = () => {
     const [count, setCount] = useState(0);
